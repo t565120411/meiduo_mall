@@ -103,7 +103,7 @@ DATABASES = {
         'NAME': 'meiduo_mall',
         'USER': 'meiduo',
         'PASSWORD': 'meiduo',
-        'HOST':'47.110.83.10',
+        'HOST':'localhost',
         'PORT':'3306'
     }
 }
@@ -151,35 +151,35 @@ STATIC_URL = '/static/'
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://47.110.83.10:6379/0",
+        "LOCATION": "redis://127.0.0.1:6379/0",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     },
     "session": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://47.110.83.10:6379/1",
+        "LOCATION": "redis://127.0.0.1:6379/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     },
     "sms_code": {
             "BACKEND": "django_redis.cache.RedisCache",
-            "LOCATION": "redis://47.110.83.10:6379/2",
+            "LOCATION": "redis://127.0.0.1:6379/2",
             "OPTIONS": {
                 "CLIENT_CLASS": "django_redis.client.DefaultClient",
             }
         },
     "history": {
                 "BACKEND": "django_redis.cache.RedisCache",
-                "LOCATION": "redis://47.110.83.10:6379/3",
+                "LOCATION": "redis://127.0.0.1:6379/3",
                 "OPTIONS": {
                     "CLIENT_CLASS": "django_redis.client.DefaultClient",
                 }
             },
     "cart": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://47.110.83.10:6379/4",
+        "LOCATION": "redis://127.0.0.1:6379/4",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
