@@ -5,9 +5,6 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from orders.models import OrderInfo
-
-
-# Create your views here.
 from payments.models import Payment
 
 
@@ -54,9 +51,8 @@ class PaymentView(APIView):
     """
 
     def put(self,request):
-        # 1、获取数据
-
-        data=request.query_params.dict()
+        # 1、获取数据,并转换为字典数据
+        data = request.query_params.dict()
         # sign 不能参与签名验证
         signature = data.pop("sign")
         # 2、验证数据
@@ -71,7 +67,7 @@ class PaymentView(APIView):
             debug=settings.ALIPAY_DEBUG  # 默认False
         )
         success = alipay.verify(data, signature)
-
+        # 如果成功,获取url传递的参数
         if success:
             order_id=data['out_trade_no']
             trade_id=data['trade_no']
